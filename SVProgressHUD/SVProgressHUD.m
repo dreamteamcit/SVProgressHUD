@@ -935,9 +935,10 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
         _stringLabel.numberOfLines = 0;
     }
     
-    if(!_stringLabel.superview)
+    if ((!_stringLabel.superview) || (_stringLabel.frame.size.width != 0)) {
         [self.hudView addSubview:_stringLabel];
-
+    }
+    
     _stringLabel.textColor = SVProgressHUDForegroundColor;
     _stringLabel.font = SVProgressHUDFont;
     
