@@ -946,11 +946,13 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
 }
 
 - (UIImageView *)imageView {
-    if (!_imageView)
-        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 28.0f, 28.0f)];
+    if (!_imageView) {
+       _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 28.0f, 28.0f)];
+    }
     
-    if(!_imageView.superview)
-        [self.hudView addSubview:_imageView];
+    if (!_imageView.superview || _imageView.frame.size.width != 0) {
+       [self.hudView addSubview:_imageView];
+    }
     
     return _imageView;
 }
